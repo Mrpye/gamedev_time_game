@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GOAL
+  - HISTORY_PLAYER
+  - SPAWN_ITEM
+  - WALL
+  - TRANSPORT
   layers:
   - Default
   - TransparentFX
@@ -16,7 +21,7 @@ TagManager:
   - Wall
   - Player
   - HistoricalPlayer
-  - 
+  - PickUP
   - 
   - 
   - 

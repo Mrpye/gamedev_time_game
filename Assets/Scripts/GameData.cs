@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -10,24 +8,39 @@ public class GameData : ScriptableObject, ISerializationCallbackReceiver {
 	public int StartLevel;
 	//public List<Vector3> spawnpoints = new List<Vector3>();
 
-	
+
+
+
+
+
+
+
 	[NonSerialized]
-	public int CurrentLevel;
+	public int current_level;
 
 	[NonSerialized]
 	public List<FileStream> fs = new List<FileStream>();
-	
+
+	[NonSerialized]
+	public float start_time = 0;
+
+	[NonSerialized]
+	public List<int> session_count = new List<int>();
 
 	public void IncLevel() {
-		CurrentLevel++;
+		current_level++;
 	}
 	//public Vector3 GetNextStartPoint() {
-		//return spawnpoints[CurrentLevel];
+	//return spawnpoints[CurrentLevel];
 	//}
 
 	public void OnAfterDeserialize() {
-		CurrentLevel = StartLevel;
+		current_level = StartLevel;
 	}
 
 	public void OnBeforeSerialize() { }
+
+
+
+
 }

@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPointList : MonoBehaviour
-{
-   [SerializeField] public List<GameObject> spawnpoints = new List<GameObject>();
-  
+public class SpawnPointList : MonoBehaviour {
+    [SerializeField] public List<GameObject> spawn_point_list = new List<GameObject>();
+
 }

@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: LevelData
   m_EditorClassIdentifier: 
   StartLevel: 0
+  spawn_points: {fileID: 4083569498199441593, guid: 6fb3c7f9b2ed17043bc4c8c47025bc2d,
+    type: 3}
