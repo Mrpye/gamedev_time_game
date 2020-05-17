@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 21
+  m_SortingOrder: 28
   m_Sprite: {fileID: 21300000, guid: 15a9f49512058ad42ada5d8149f7fb26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.29411766}
   m_FlipX: 0
@@ -151,10 +151,12 @@ MonoBehaviour:
   fHorizontalDampingWhenStopping: 0.693
   fHorizontalDampingWhenTurning: 0.288
   fCutJumpHeight: 0.5
+  start_time: 0
   current_level: 0
   is_history_player: 0
   level_data: {fileID: 11400000, guid: 2201976cdf97b484d9e402ac381fa204, type: 2}
   level_manager: {fileID: 455344914, guid: 0cf57fa5a4462b344964c82af0f9ba69, type: 3}
+  audio_jump: {fileID: 0}
 --- !u!114 &114647336411124836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level_manager: {fileID: 0}
   impact: {fileID: 8300000, guid: f504f8ca5b111ac4fb0d8b0cbe6d0f9b, type: 3}
+  death: 0
 --- !u!95 &8482093845624266518
 Animator:
   serializedVersion: 3

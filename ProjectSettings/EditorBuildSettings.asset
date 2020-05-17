@@ -9,9 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Zone1.unity
+    path: Assets/Scenes/EndGame.unity
+    guid: 6104451f1e08e4e4caaff80d1a52ae16
+  - enabled: 1
+    path: Assets/Scenes/Zone1a.unity
     guid: 61a5544110e38e547ba546e3a6bfd83a
   - enabled: 1
-    path: Assets/Scenes/EndGame.unity
+    path: Assets/Scenes/Zone1b.unity
+    guid: bd5721f2cd23be740abe142d73fa7cc8
+  - enabled: 1
+    path: Assets/Scenes/Zone1c.unity
+    guid: 18222195ef1b82e43b4cddea836832b1
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
     guid: 2d81fc9dfebca5541ae1db88f57978ac
+  - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: 723bc33c34116e943a411202d687cce9
   m_configObjects: {}

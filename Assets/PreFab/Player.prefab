@@ -67,7 +67,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 28
   m_Sprite: {fileID: 21300000, guid: bf31ef28b729f714ba0bc1aa5b247067, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -152,7 +152,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 22
+  m_SortingOrder: 28
   m_Sprite: {fileID: 21300000, guid: b314de8430ee51d49b50575614aa4fa5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -227,6 +227,7 @@ MonoBehaviour:
   fHorizontalDampingWhenStopping: 0.693
   fHorizontalDampingWhenTurning: 0.288
   fCutJumpHeight: 0.5
+  start_time: 0
   current_level: 0
   is_history_player: 0
   level_data: {fileID: 11400000, guid: 2201976cdf97b484d9e402ac381fa204, type: 2}

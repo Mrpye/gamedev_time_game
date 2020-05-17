@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 using UnityEngine;
 
@@ -61,19 +62,24 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] [Range(0, 1)] private float fHorizontalDampingWhenTurning = 0.5f;
     [SerializeField] [Range(0, 1)] private float fCutJumpHeight = 0.5f;
 
+    public float start_time = 0;
     public int current_level;
     public bool is_history_player;
+    private bool jump_off_platform = false;
+    private int wall_mask;
+    private int player_mask;
 
     [Header("LevelData")]
     [SerializeField] private GameData level_data;
 
     public LevelManager level_manager;
 
-
     [Header("Audio")]
     //[SerializeField] AudioClip audio_walk;
-    [SerializeField] AudioClip audio_jump;
+    [SerializeField] private AudioClip audio_jump;
+
     private AudioSource audio;
+
     private void StartPlayer(GameObject player, int level, bool playback) {
         level_manager.SetGameObjectToPos(player, level);
         is_history_player = playback;
@@ -89,12 +95,14 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private float getTime() {
-        return Time.time - level_data.start_time;
+        return Time.time - start_time;
     }
 
     private void Start() {
         audio = GetComponent<AudioSource>();
         rigid = GetComponent<Rigidbody2D>();
+        wall_mask = LayerMask.NameToLayer("Wall");
+        player_mask = LayerMask.NameToLayer("Player");
         if (is_history_player == true) {
             StartPlayer(gameObject, current_level, true);
         } else {
@@ -120,8 +128,8 @@ public class PlayerMovement : MonoBehaviour {
         currentSequence.init();
         nextSequence.init();
 
-        if (level_data.start_time == 0 && is_history_player == false) {
-            level_data.start_time = setStartTime();
+        if (start_time == 0 && is_history_player == false) {
+            start_time = setStartTime();
         }
 
         running = true;
@@ -202,8 +210,12 @@ public class PlayerMovement : MonoBehaviour {
         string newline = inputPlaybackStream.ReadLine();
         current_pos = fs.Position;
         if (newline == null) { return false; }
-        nextSequence = JsonUtility.FromJson<InputSequence>(newline);
-        return true;
+        try {
+            nextSequence = JsonUtility.FromJson<InputSequence>(newline);
+            return true;
+        } catch {
+            return false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -211,6 +223,7 @@ public class PlayerMovement : MonoBehaviour {
             bGrounded = true;
             if (shadowsr != null) {
                 shadowsr.enabled = true;
+                jump_off_platform = false;
             }
         }
     }
@@ -224,34 +237,46 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    private IEnumerator JumpOffPlatform() {
+        jump_off_platform = true;
+        Physics2D.IgnoreLayerCollision(player_mask, wall_mask, true);
+        yield return new WaitForSeconds(0.2f);
+        Physics2D.IgnoreLayerCollision(player_mask, wall_mask, false);
+        jump_off_platform = false;
+    }
+
     private void Update() {
         bool jumped = false;
         if (running == true) {
             if (mode == Mode.PlayBack) {
-                GetPositionData();
-                if (eof != true) {
-                    gameObject.transform.position = new Vector3(currentSequence.x, currentSequence.y, 0);
-                    if (oldSequence.x > currentSequence.x) {
-                        sr.flipX = true;
-                    } else {
-                        sr.flipX = false;
-                    }
-                    if (animator != null) {
-                        float velocity = 0;
-                        float speed = Mathf.Abs(currentSequence.x - oldSequence.x);
-                        if (speed > 0) {
-                            
-                            
-                            velocity = (currentSequence.x - oldSequence.x) / Time.deltaTime;
+                if (level_manager.time_frozen == false) {
+                    GetPositionData();
+                    if (eof != true) {
+                        gameObject.transform.position = new Vector3(currentSequence.x, currentSequence.y, 0);
+                        if (oldSequence.x > currentSequence.x) {
+                            sr.flipX = true;
                         } else {
-                            velocity = 0;
-                           
+                            sr.flipX = false;
                         }
-                        animator.speed = Mathf.Abs(velocity * 0.1f);
-                        animator.SetFloat("speed", Mathf.Abs(speed));
+                        if (animator != null) {
+                            float velocity = 0;
+                            float speed = Mathf.Abs(currentSequence.x - oldSequence.x);
+                            if (speed > 0) {
+                                velocity = (currentSequence.x - oldSequence.x) / Time.deltaTime;
+                            } else {
+                                velocity = 0;
+                            }
+                            animator.speed = Mathf.Abs(velocity * 0.1f);
+                            animator.SetFloat("speed", Mathf.Abs(speed));
+                        }
                     }
                 }
             } else {
+                if (Input.GetButtonDown("Fire1")) {
+                    //This will fix time incursion or freeze time
+                    level_manager.TimeCrystalUsed();
+                }
+
                 fGroundedRemember -= Time.deltaTime; ;
                 if (bGrounded) {
                     fGroundedRemember = fGroundedRememberTime;
@@ -260,7 +285,7 @@ public class PlayerMovement : MonoBehaviour {
                 fJumpPressedRemember -= Time.deltaTime;
                 if (Input.GetButtonDown("Jump")) {
                     jumped = true;
-                     fJumpPressedRemember = fJumpPressedRememberTime;
+                    fJumpPressedRemember = fJumpPressedRememberTime;
                 }
 
                 if (Input.GetButtonUp("Jump")) {
@@ -269,19 +294,20 @@ public class PlayerMovement : MonoBehaviour {
                     }
                 }
 
+                if ((Input.GetButtonDown("Down") || Input.GetAxisRaw("Vertical") < 0) && bGrounded && jump_off_platform == false) {
+                    StartCoroutine(JumpOffPlatform());
+                }
+
                 if ((fJumpPressedRemember > 0) && (fGroundedRemember > 0)) {
                     fJumpPressedRemember = 0;
                     fGroundedRemember = 0;
                     rigid.velocity = new Vector2(rigid.velocity.x, fJumpVelocity);
                 }
 
-
-                float input= Input.GetAxisRaw("Horizontal");
+                float input = Input.GetAxisRaw("Horizontal");
                 float fHorizontalVelocity = rigid.velocity.x;
                 fHorizontalVelocity += input;
 
-
-               
                 if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f)
                     fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDampingWhenStopping, Time.deltaTime * 10f);
                 else if (Mathf.Sign(Input.GetAxisRaw("Horizontal")) != Mathf.Sign(fHorizontalVelocity))
@@ -299,31 +325,26 @@ public class PlayerMovement : MonoBehaviour {
                 } else {
                     sr.flipX = false;
                 }
-                float verlocity= Mathf.Abs(rigid.velocity.x * 0.1f);
-                    animator.speed = verlocity;
-                    animator.SetFloat("speed", Mathf.Abs(rigid.velocity.x));
+                float verlocity = Mathf.Abs(rigid.velocity.x * 0.1f);
+                animator.speed = verlocity;
+                animator.SetFloat("speed", Mathf.Abs(rigid.velocity.x));
                 if (animator != null) {
                     // Debug.Log(rigid.velocity.x.ToString());
                 }
 
-                if (jumped == true && bGrounded == true) { 
-                    if (audio != null && audio_jump != null ) {
-                       
+                if (jumped == true && bGrounded == true) {
+                    if (audio != null && audio_jump != null) {
                         audio.PlayOneShot(audio_jump);
-                          
                     }
                 } else {
                     if (Mathf.Abs(input) > 0 && bGrounded == true) {
                         if (!audio.isPlaying) {
                             audio.Play();
                         }
-                    } else if (Mathf.Abs(input)== 0 && bGrounded == true) {
+                    } else if (Mathf.Abs(input) == 0 && bGrounded == true) {
                         audio.Stop();
-
                     }
                 }
-                
-                
             }
         }
     }
