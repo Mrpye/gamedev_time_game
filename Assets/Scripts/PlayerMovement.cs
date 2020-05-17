@@ -99,10 +99,12 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Start() {
+       
         audio = GetComponent<AudioSource>();
         rigid = GetComponent<Rigidbody2D>();
         wall_mask = LayerMask.NameToLayer("Wall");
         player_mask = LayerMask.NameToLayer("Player");
+        Physics2D.IgnoreLayerCollision(player_mask, wall_mask, false);
         if (is_history_player == true) {
             StartPlayer(gameObject, current_level, true);
         } else {

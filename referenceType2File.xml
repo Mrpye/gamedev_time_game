@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTypeDate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDate>
+    <guid>842f43ac94b4b4f72ac0898650ddcc44</guid>
+    <fileName>Assets/Editor/AssetCollector.cs</fileName>
+    <timeStamp>2020-05-17T12:48:34.4939078+01:00</timeStamp>
+    <typeFullName>
+      <string>AssetClean.AssetCollector</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>805140a4856714e288ea84985d3023df</guid>
+    <fileName>Assets/Editor/AssetReferenceCollection.cs</fileName>
+    <timeStamp>2020-05-17T12:48:34.5128597+01:00</timeStamp>
+    <typeFullName>
+      <string>AssetReferenceCollection</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>202c278a17939b24c8b79c0ee1f94d8f</guid>
+    <fileName>Assets/Editor/ClassReferenceCollection.cs</fileName>
+    <timeStamp>2020-05-17T12:48:34.5278184+01:00</timeStamp>
+    <typeFullName>
+      <string>AssetClean.ClassReferenceCollection</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0d05386265df34bac8d0b6df44aa494c</guid>
+    <fileName>Assets/Editor/CollectionData.cs</fileName>
+    <timeStamp>2020-05-17T12:48:34.5447721+01:00</timeStamp>
+    <typeFullName>
+      <string>CollectionData</string>
+      <string>TypeDate</string>
+      <string>IReferenceCollection</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>74eec3bfba0594259ac2843353c082a3</guid>
+    <fileName>Assets/Editor/FindUnusedAssetsWindow.cs</fileName>
+    <timeStamp>2020-05-17T12:48:34.5577362+01:00</timeStamp>
+    <typeFullName>
+      <string>AssetClean.FindUnusedAssetsWindow</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2c4f01a79a77a45a9a84004cc2b78098</guid>
+    <fileName>Assets/Editor/ShaderReferenceCollection.cs</fileName>
+    <timeStamp>2020-05-17T12:48:34.5726959+01:00</timeStamp>
+    <typeFullName>
+      <string>AssetClean.ShaderReferenceCollection</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp-Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>fc7b66e71df97cb4392723f52ec5925e</guid>
+    <fileName>Assets/Scripts/Cloud.cs</fileName>
+    <timeStamp>2020-05-13T20:52:21.4815974+01:00</timeStamp>
+    <typeFullName>
+      <string>Cloud</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c8afe571a996d3748b4cedaf8e9cb4d9</guid>
+    <fileName>Assets/Scripts/Game2DTrigger.cs</fileName>
+    <timeStamp>2020-05-15T07:39:51.112625+01:00</timeStamp>
+    <typeFullName>
+      <string>Game2DTrigger</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6210d5afefd60064a86f6ab93c94d3e7</guid>
+    <fileName>Assets/Scripts/GameData.cs</fileName>
+    <timeStamp>2020-05-12T07:24:19.7308195+01:00</timeStamp>
+    <typeFullName>
+      <string>GameData</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0fd8045f2bd0fd54db51dbd020c8b1cc</guid>
+    <fileName>Assets/Scripts/LevelManager.cs</fileName>
+    <timeStamp>2020-05-17T12:06:24.0527878+01:00</timeStamp>
+    <typeFullName>
+      <string>LevelManager</string>
+      <string>LevelManager+LevelData</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b246398db796a27439887308a7cafd6a</guid>
+    <fileName>Assets/Scripts/MenuOptions.cs</fileName>
+    <timeStamp>2020-05-17T11:50:22.7957982+01:00</timeStamp>
+    <typeFullName>
+      <string>MenuOptions</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>433fdec0bb71fa248afa77dcd3b224f6</guid>
+    <fileName>Assets/Scripts/MoveWithPlatform.cs</fileName>
+    <timeStamp>2020-05-12T17:50:29.4297512+01:00</timeStamp>
+    <typeFullName>
+      <string>MoveWithPlatform</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>bc474d47c1581bd4288bdac15dc027fe</guid>
+    <fileName>Assets/Scripts/MovingPlatform.cs</fileName>
+    <timeStamp>2020-05-12T17:40:46.105643+01:00</timeStamp>
+    <typeFullName>
+      <string>MovingPlatform</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b6fc02e15be17584f81001322badc347</guid>
+    <fileName>Assets/Scripts/PersistentManagerScript.cs</fileName>
+    <timeStamp>2020-05-17T12:04:06.5871744+01:00</timeStamp>
+    <typeFullName>
+      <string>PersistentManagerScript</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0ccc4dd95da8a454f86f2312461cea80</guid>
+    <fileName>Assets/Scripts/PlayerFlip.cs</fileName>
+    <timeStamp>2020-05-09T07:54:44.3617482+01:00</timeStamp>
+    <typeFullName>
+      <string>PlayerFlip</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9b03d38126102bc48a869f8c968d830f</guid>
+    <fileName>Assets/Scripts/PlayerMovement.cs</fileName>
+    <timeStamp>2020-05-15T07:44:44.5143914+01:00</timeStamp>
+    <typeFullName>
+      <string>PlayerMovement</string>
+      <string>PlayerMovement+UpdateFunction</string>
+      <string>PlayerMovement+Mode</string>
+      <string>PlayerMovement+InputSequence</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2d019924d3251fa44859f3e33ca2dd2d</guid>
+    <fileName>Assets/Scripts/ShowScore.cs</fileName>
+    <timeStamp>2020-05-12T17:15:29.2248928+01:00</timeStamp>
+    <typeFullName>
+      <string>ShowScore</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9c3dff7fa028e234ca833dee1d36ab45</guid>
+    <fileName>Assets/Scripts/SpawnPointList.cs</fileName>
+    <timeStamp>2020-05-09T07:54:44.3020001+01:00</timeStamp>
+    <typeFullName>
+      <string>SpawnPointList</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8a858c77d85c62e429454be498a6ffe9</guid>
+    <fileName>Assets/Scripts/Target.cs</fileName>
+    <timeStamp>2020-05-09T09:46:47.1506171+01:00</timeStamp>
+    <typeFullName>
+      <string>Target</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+</ArrayOfTypeDate>

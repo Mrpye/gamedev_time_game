@@ -44,6 +44,7 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private GameObject player_portal_prefab;
     [SerializeField] private GameObject exit_portal_prefab;
     [SerializeField] private GameObject incursion_fix_prefab;
+    [SerializeField] private GameObject ingame_menu;
 
     [Header("UI")]
     [SerializeField] private Slider incursion_meter;
@@ -76,6 +77,11 @@ public class LevelManager : MonoBehaviour {
     private Coroutine timer_obj;
     public bool time_frozen;
 
+    [Header("Audio")]
+    [SerializeField] public AudioClip time_freeze_audio;
+    [SerializeField] public AudioClip crystal_used_audio;
+    AudioSource audioSource;
+
 
     private int items_collected;
     public int current_level;
@@ -105,6 +111,16 @@ public class LevelManager : MonoBehaviour {
         ResetLifes();
         incursion_fix = false;
         time_frozen = false;
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    public void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            if(ingame_menu != null) {
+                ingame_menu.SetActive(true);
+               
+            }
+        }
     }
 
 
@@ -143,6 +159,7 @@ public class LevelManager : MonoBehaviour {
 
     private IEnumerator FreezeTime() {
         time_frozen = true;
+        if (time_freeze_audio != null) { audioSource.PlayOneShot(time_freeze_audio, 0.7F); }
         yield return new WaitForSeconds(time_freeze_seconds);
         time_frozen = false;
     }
@@ -158,6 +175,7 @@ public class LevelManager : MonoBehaviour {
             if (incursions == 0) {
                 StartCoroutine(FreezeTime());
             } else {
+               
                 DecIncursion();
             }
         } else {
@@ -260,6 +278,7 @@ public class LevelManager : MonoBehaviour {
     private void DecIncursion() {
         incursions--;
         if (incursion_meter != null) {
+            if (crystal_used_audio != null) { audioSource.PlayOneShot(crystal_used_audio, 0.7F); }
             if (incursions < 0) { incursions = 0; }
             incursion_meter.value = incursions;
         }

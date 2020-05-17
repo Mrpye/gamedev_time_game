@@ -28,7 +28,7 @@ public class PersistentManagerScript : MonoBehaviour
     public void SubLife() {
         lives--;
         if (lives<0) {
-            lives = 0;
+         //   lives = 0;
         }
     }
     public void ResetLives() {
